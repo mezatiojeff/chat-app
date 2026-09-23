@@ -15,4 +15,14 @@
         <url-pattern>/chat</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MessagesServlet</servlet-name>
+        <servlet-class>com.ariel.chatapp.MessagesServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MessagesServlet</servlet-name>
+        <url-pattern>/messages</url-pattern>
+    </servlet-mapping>
+
 </web-app>

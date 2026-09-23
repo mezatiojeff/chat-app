@@ -31,13 +31,14 @@ public class ChatServlet extends HttpServlet {
         if (pseudo != null && texte != null && !texte.trim().isEmpty()) {
             ChatStorage.ajouterMessage(pseudo, texte);
 
-            // On mémorise le pseudo dans un cookie, pour 1 jour
             Cookie cookie = new Cookie("monPseudo", pseudo);
             cookie.setMaxAge(60 * 60 * 24);
             cookie.setPath("/");
             response.addCookie(cookie);
         }
 
-        response.sendRedirect("chat");
+        // On répond juste "OK", pas de redirection (le JavaScript gère l'affichage)
+        response.setContentType("text/plain");
+        response.getWriter().print("OK");
     }
 }
